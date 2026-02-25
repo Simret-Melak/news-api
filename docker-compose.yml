@@ -1,0 +1,21 @@
+services:
+  db_postgres:
+    image: postgres:16
+    container_name: news_api_postgres
+    environment:
+      POSTGRES_USER: simret
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: news_api
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7
+    container_name: news_api_redis
+    ports:
+      - "6379:6379"
+
+volumes:
+  pgdata:
